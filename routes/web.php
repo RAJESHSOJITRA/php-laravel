@@ -1,13 +1,29 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+    //compact for converting an afrray and imploode for converting an string
+
+// Route::get('home/{name?}',function($name=null){
+//     $demo="<h1>heading line 1</h1>";
+//     $data=compact('name','demo');
+//     return view('home')->with($data); 
+// });
+
+    Route::get('/',function (){
+        return view('home1');
+    });
+   
+    Route::get('/about',function (){
+        return view('about');
+    });
+
+    Route::get('/course',function(){
+        return view('course');
+    });
+// Route::get('/demo', [UserController::class, 'index']);
 
 
-Route::get('home/{name?}',function($name=null){
-    $demo="<h1>heading line 1</h1>";
-    $data=compact('name','demo');
-    return view('home')->with($data); 
-});
+// Route:redirect('/home','demo');
 
 
 // this is for route example
@@ -32,9 +48,6 @@ Route::get('home/{name?}',function($name=null){
 
 
 
-    // Route::get('/demo',function (){
-    //     return view('demo');
-    // });
 
 
 
