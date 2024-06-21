@@ -54,8 +54,10 @@ $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
 <br>
 
     @for($i=1;$i<=100;$i++ )
-     @if($i%5==0)<br>
+     @if($i%10==1)<br>
      @continue
+    
+     {{-- @elseif($i%10==0) --}}
      @endif
      {{$i}}
 

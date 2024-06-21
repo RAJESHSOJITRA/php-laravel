@@ -2,17 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\yes;
 use Illuminate\Http\Request;
 
-class singledemo extends Controller
+class ResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        echo 'this is caling an index';
     }
 
     /**
@@ -20,7 +19,9 @@ class singledemo extends Controller
      */
     public function create()
     {
-        //
+        echo 'this is caling an create ';
+        echo 'ctreayed';
+        
     }
 
     /**
@@ -34,23 +35,23 @@ class singledemo extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(yes $yes)
+    public function show(string $id)
     {
-        //
+        // echo $id;
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(yes $yes)
+    public function edit(string $id)
     {
-        //
+            echo "$id for editing";
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, yes $yes)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,8 +59,8 @@ class singledemo extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(yes $yes)
+    public function destroy(string $id)
     {
-        //
+       echo $id;
     }
 }
