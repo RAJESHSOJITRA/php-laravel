@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 use function PHPUnit\Framework\returnSelf;
  use App\Http\Controllers\RegistrationController;
-
+    use App\Models\Customer;
 // use App\Http\Controllers\Basiccontroller;
 // use App\Http\Controllers\SingleActionController;
 // use App\Http\Controllers\ResourceController;
@@ -13,6 +14,20 @@ use function PHPUnit\Framework\returnSelf;
 Route::get('/register',[RegistrationController::class,'index']);
 Route::post('/register',[RegistrationController::class,'registration']);
 
+// for storing the form data in the database
+Route::get('/customer/create',[CustomerController::class,'index']);
+Route::post('/customers',[CustomerController::class,'customer']);
+Route::get('/customer/view',[CustomerController::class,'view']);
+
+
+
+Route::get('/custom',function(){
+        $customers=Customer::all();
+        echo"<pre>";
+        print_r($customers->toArray()); 
+        
+
+});
 
 
 //     // Route::get('/',[Basiccontroller::class,'index']);

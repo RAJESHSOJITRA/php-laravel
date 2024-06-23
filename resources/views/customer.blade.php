@@ -11,8 +11,8 @@
 </head>
 
 <body>
-
-    <form action="{{ url('/') }}/register" method="post">
+            {{-- this customers is used for post the input field --}}
+    <form action="{{ url('/') }}/customers" method="post">
         @csrf
         <pre>
           @php
@@ -20,7 +20,7 @@
           @endphp
         </pre>
         <div class="container">
-            <h1 class="text-center">Registarion form</h1>
+            <h1 class="text-center">Customer Registarion form</h1>
 
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
@@ -57,6 +57,15 @@
                 <input type="text" name="state" class="form-control" id="state" aria-describedby="state">
                 <span class='text-danger'>
                     @error('state')
+                        {{ $message }}
+                    @enderror
+                </span>
+            </div>
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date of Birth</label>
+                <input type="date" name="dob" class="form-control" id="state" aria-describedby="state">
+                <span class='text-danger'>
+                    @error('date of birth')
                         {{ $message }}
                     @enderror
                 </span>

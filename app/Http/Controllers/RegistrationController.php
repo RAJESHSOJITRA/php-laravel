@@ -16,6 +16,8 @@ class RegistrationController extends Controller
                 'country'=>'required',
                 'gender'=>'required|in:male,female',
                 'email'=>'required|email',
+                'state'=>'required|',
+                'adress'=>'required|',
                 'password'=>'required',
             ]
             );
