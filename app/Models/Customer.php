@@ -11,5 +11,6 @@ class Customer extends Model
         // model is used take the data from the database 
     use HasFactory;
     protected $table="customers";
-    protected $primerykey="customers_id";
+    //primaryKey
+    protected $primaryKey="customers_id";
 }

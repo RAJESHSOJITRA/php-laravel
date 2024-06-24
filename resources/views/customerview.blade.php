@@ -19,8 +19,41 @@
     </head>
 
     <body>
+        
+    <nav class="navbar navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+        
+          <a class="navbar-brand" href="#" style="color:white">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/')}}" style="color: white">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/register')}}"style="color: white">Register</a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/customer/view')}}"style="color: white">Customer</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search">
+              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+
     <div class="container">
-        <table class="border border-primary">
+        {{-- <a href="{{url('/customer/create')}}"></a> --}}
+        <a href="{{route('customer.create')}}">
+        <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
+      </a> <table class="border border-primary">
           
             <thead >
                 <tr>
@@ -31,6 +64,7 @@
                     <th>State</th>
                     <th>Country</th>
                     <th>Status</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,16 +77,22 @@
                     <td>{{$customer->dob}}</td>
                     <td>{{$customer->state}}</td>
                     <td>{{$customer->country}}</td>
-
+              
                     <td>
                         @if ($customer->status=="1")
-                                Active
+                                <span class="badge badge-sucess">Active</span>  
                            
                        @else
-                        inActive
+                                <span class="badge badge-danger">InActive</span>  
                            
                         @endif
                         </td>
+                        <td>
+                          {{-- <a href="{{url('customer/view/delete/')}}/{{$customer->customers_id}}"> --}}
+                            <a href="{{url('customer/delete/')}}/{{$customer->customers_id}}">
+                          <button class="btn btn-danger">delete</button> </a>
+                          <button class="btn btn-primary">Edit</button>
+                       </td>
                 </tr>
                 @endforeach 
             </tbody>

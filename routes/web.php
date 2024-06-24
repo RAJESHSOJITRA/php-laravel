@@ -11,11 +11,16 @@ use function PHPUnit\Framework\returnSelf;
 // use App\Http\Controllers\ResourceController;
 
 // registration form route
+Route::get('/',function(){
+        return view('index');
+});
 Route::get('/register',[RegistrationController::class,'index']);
 Route::post('/register',[RegistrationController::class,'registration']);
 
-// for storing the form data in the database
-Route::get('/customer/create',[CustomerController::class,'index']);
+// for storing the form data in the database    
+            //url route                                                            //name route
+Route::get('/customer/create',[CustomerController::class,'index'])->name('customer.create');
+Route::get('customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
 Route::post('/customers',[CustomerController::class,'customer']);
 Route::get('/customer/view',[CustomerController::class,'view']);
 
