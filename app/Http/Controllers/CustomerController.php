@@ -9,11 +9,15 @@ use Illuminate\Support\Facades\Redirect;
 class CustomerController extends Controller
 {
     public function create(){
-        $url=url('/customer');
+        $url=url('/customers'); //url for post the data into the database
         $customer = new Customer();
         $title="customer registration";
         $data=compact('url',"title","customer");
         return view('customer')->with($data);
+            // return redirect('/customer/view');
+        // 
+
+
     } 
 
     public function customer(Request $request){

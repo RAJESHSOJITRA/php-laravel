@@ -50,8 +50,9 @@
       </nav>
 
     <div class="container">
-        {{-- <a href="{{url('/customer/create')}}"></a> --}}
-        <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
+        {{-- <a href="{{route('/customer/create')}}"> --}}
+          <a href="{{ url('/customer/create') }}" class="btn btn-primary mb-2">Add</a>
+
       </a> <table class="border border-primary">
           
             <thead >
@@ -91,7 +92,7 @@
                           {{--this is url method 'customer/view/delete/' --}}
                           
           <a href="{{url('customer/delete/')}}/{{$customer->customers_id}}">
-                   <button class="btn btn-danger">delete</button> </a>
+                   <button class="btn btn-danger" onclick="return confirm('Are you sure?')">delete</button> </a>
               <a href="{{url('customer/edit/')}}/{{$customer->customers_id}}">
                     <button class="btn btn-danger">Edit</button></a>
                        </td>

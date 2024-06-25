@@ -43,10 +43,12 @@
             </div>
         </div>
     </nav>
+    {{-- <form  action="{{ url('/') }}/register"  method="post"> --}}
 
     {{-- this customers is used for post the input field --}}
     <form action="{{ $url }}" method="post">
-        @csrf
+           
+          @csrf
         <pre>
           @php
               print_r($errors->all());
@@ -68,7 +70,7 @@
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                    aria-describedby="emailHelp" {{$customer->email}}>
+                    aria-describedby="emailHelp"value="{{$customer->email}}">
                 <span class='text-danger'>
                     @error('email')
                         {{ $message }}
@@ -78,7 +80,7 @@
             </div>
             <div class="mb-3">
                 <label for="country" class="form-label">country</label>
-                <input type="text" name="country" class="form-control" id="country" aria-describedby="country" {{$customer->country}}>
+                <input type="text" name="country" class="form-control" id="country" aria-describedby="country" value="{{$customer->country}}">
                 <span class='text-danger'>
                     @error('country')
                         {{ $message }}
@@ -87,7 +89,7 @@
             </div>
             <div class="mb-3">
                 <label for="state" class="form-label">state</label>
-                <input type="text" name="state" class="form-control" id="state" aria-describedby="state" {{$customer->state}}>
+                <input type="text" name="state" class="form-control" id="state" aria-describedby="state" value="{{$customer->state}}">
                 <span class='text-danger'>
                     @error('state')
                         {{ $message }}
@@ -97,7 +99,7 @@
             <div class="mb-3">
                 <label for="dob" class="form-label">Date of Birth</label>
                 <input type="date" name="dob" class="form-control" id="state" aria-describedby="state"
-                    style="max-width:200px;" {{$customer->dob}}>
+                    style="max-width:200px;" value="{{$customer->dob}}">
                 <span class='text-danger'>
                     @error('date of birth')
                         {{ $message }}
@@ -106,7 +108,7 @@
             </div>
             <div class="mb-3">
                 <label for="adress" class="form-label">Adress</label>
-                <input type="text" name="adress" class="form-control" id="adress" aria-describedby="adress" {{$customer->adress}}>
+                <input type="text" name="adress" class="form-control" id="adress" aria-describedby="adress" value="{{$customer->adress}}">
                 <span class='text-danger'>
                     @error('adress')
                         {{ $message }}
@@ -117,7 +119,7 @@
                 <legend>Choose your gender:</legend>
                 <label for="male">Male</label>
                 <input type="radio" name="gender" id="male" value="male" 
-                {{$customer->gender=="male"? "checked":"" }}>
+              {{$customer->gender=="male"? "checked":"" }}>
                 <span class='text-danger'>
                     @error('gender')
                         {{ $message }}

@@ -23,8 +23,10 @@ Route::post('/register',[RegistrationController::class,'registration']);
 Route::get('/customer/create',[CustomerController::class,'create'])->name('customer.create');
 Route::get('customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
 Route::get('customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+//for updating the form
 Route::post('customer/view/update/{id}',[CustomerController::class,'update'])->name('customer.update');
 Route::get('/customer/view',[CustomerController::class,'view']);
+//for first time user submitting the form
 Route::post('/customers',[CustomerController::class,'customer']);       
 
 
