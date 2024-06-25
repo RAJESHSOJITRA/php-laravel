@@ -34,7 +34,7 @@
                 <a class="nav-link active" aria-current="page" href="{{url('/')}}" style="color: white">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{{url('/register')}}"style="color: white">Register</a>
+                <a class="nav-link active" aria-current="page" href="{{url('/customer/create')}}"style="color: white">Register</a>
               </li>
               
               <li class="nav-item">
@@ -51,7 +51,6 @@
 
     <div class="container">
         {{-- <a href="{{url('/customer/create')}}"></a> --}}
-        <a href="{{route('customer.create')}}">
         <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
       </a> <table class="border border-primary">
           
@@ -61,6 +60,7 @@
                     <th>Email</th>
                     <th>Gender</th>
                     <th>Dob</th>
+                    <th>Adreess</th>
                     <th>State</th>
                     <th>Country</th>
                     <th>Status</th>
@@ -75,23 +75,25 @@
                     <td>{{$customer->email}}</td>
                     <td>{{$customer->gender}}</td>
                     <td>{{$customer->dob}}</td>
+                    <td>{{$customer->adress}}</td>
                     <td>{{$customer->state}}</td>
                     <td>{{$customer->country}}</td>
               
                     <td>
                         @if ($customer->status=="1")
-                                <span class="badge badge-sucess">Active</span>  
-                           
+               <span class="badge text-bg-success" >Active  </span>  
                        @else
-                                <span class="badge badge-danger">InActive</span>  
+                                <span class="badge text-bg-danger">InActive</span>  
                            
                         @endif
                         </td>
                         <td>
-                          {{-- <a href="{{url('customer/view/delete/')}}/{{$customer->customers_id}}"> --}}
-                            <a href="{{url('customer/delete/')}}/{{$customer->customers_id}}">
-                          <button class="btn btn-danger">delete</button> </a>
-                          <button class="btn btn-primary">Edit</button>
+                          {{--this is url method 'customer/view/delete/' --}}
+                          
+          <a href="{{url('customer/delete/')}}/{{$customer->customers_id}}">
+                   <button class="btn btn-danger">delete</button> </a>
+              <a href="{{url('customer/edit/')}}/{{$customer->customers_id}}">
+                    <button class="btn btn-danger">Edit</button></a>
                        </td>
                 </tr>
                 @endforeach 

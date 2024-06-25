@@ -19,10 +19,13 @@ Route::post('/register',[RegistrationController::class,'registration']);
 
 // for storing the form data in the database    
             //url route                                                            //name route
-Route::get('/customer/create',[CustomerController::class,'index'])->name('customer.create');
+        
+Route::get('/customer/create',[CustomerController::class,'create'])->name('customer.create');
 Route::get('customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
-Route::post('/customers',[CustomerController::class,'customer']);
+Route::get('customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
+Route::post('customer/view/update/{id}',[CustomerController::class,'update'])->name('customer.update');
 Route::get('/customer/view',[CustomerController::class,'view']);
+Route::post('/customers',[CustomerController::class,'customer']);       
 
 
 
