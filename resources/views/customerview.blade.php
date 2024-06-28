@@ -18,12 +18,14 @@
         />
     </head>
 
-    <body>
-        
+    <body>  
+          {{-- <h3>{{Auth::user()}}</h3> --}}
     <nav class="navbar navbar-expand-lg bg-dark">
         <div class="container-fluid">
         
-          <a class="navbar-brand" href="#" style="color:white">Navbar</a>
+          <a class="navbar-brand" href="#" style="color:white">
+            {{session()->get('name')}}
+          </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -35,6 +37,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{url('/customer/create')}}"style="color: white">Register</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/customer/login')}}"style="color: white">login</a>
               </li>
               
               <li class="nav-item">

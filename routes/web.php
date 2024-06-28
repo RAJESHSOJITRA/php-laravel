@@ -1,4 +1,5 @@
 <?php
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,8 @@ Route::post('/register',[RegistrationController::class,'registration']);
             //url route                                                            //name route
         
 Route::get('/customer/create',[CustomerController::class,'create'])->name('customer.create');
+Route::get('/customer/login',[CustomerController::class,'login'])->name('custome.login');
+
 Route::get('customer/delete/{id}',[CustomerController::class,'delete'])->name('customer.delete');
 Route::get('customer/edit/{id}',[CustomerController::class,'edit'])->name('customer.edit');
 //for updating the form
@@ -29,15 +32,33 @@ Route::get('/customer/view',[CustomerController::class,'view']);
 //for first time user submitting the form
 Route::post('/customers',[CustomerController::class,'customer']);       
 
-
+//for upload a file
+// Route::get('/upload',[CustomerController::class,'upload']);
+// Route::post('/upload',[CustomerController::class,'upload']);
 
 Route::get('/custom',function(){
         $customers=Customer::all();
         echo"<pre>";
         print_r($customers->toArray()); 
-        
-
 });
+
+Route::get('get-all-session',function(){
+        $session=session()->all();
+        echo"<pre>";
+        print_r($session);
+});
+
+Route::get('set-session', function (Request $request) {
+        $request->session()->put('name', 'rajesh');
+        $request->session()->put('customers_id', '17');
+//   $request->session()->flash('status', 'Success');     //one request it delete
+        return redirect('get-all-session');
+        });
+ Route::get('destroy-session', function () {
+        session()->forget(['name', 'customers_id']);
+        // session()->forget('user_id');
+        return redirect('get-all-session');
+        });
 
 
 //     // Route::get('/',[Basiccontroller::class,'index']);

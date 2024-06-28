@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class CustomerController extends Controller
@@ -14,13 +15,15 @@ class CustomerController extends Controller
         $title="customer registration";
         $data=compact('url',"title","customer");
         return view('customer')->with($data);
-            // return redirect('/customer/view');
-        // 
+       // return redirect('/customer/view');
+        
 
 
     } 
 
+    // this function customer is used for store the data in database
     public function customer(Request $request){
+
         // validation in the form
 
         $request->validate(
@@ -34,10 +37,10 @@ class CustomerController extends Controller
                 'password'=>'required',
             ]
             );
-
+            
             echo"<pre>";
             var_dump($request->all());
-           
+            
             // insert query into the database
             $customer=new Customer;
             $customer->name=$request['name'];
@@ -51,7 +54,31 @@ class CustomerController extends Controller
             $customer->save();
             return redirect('/customer/view');
     }
-
+    public function login(Request $request){
+        return view('login');
+    }
+        // public function login(Request $request){
+        //         $credentials=$request->validate([
+        //             'email'=>'required|emial',
+        //             'password'=>'required',
+        //         ]);
+                
+        //             if(Auth::attempt($credentials)){
+        //                 return redirect()->route('dashboard');
+        //             }
+        //             else{
+        //                 return view('login');
+        //             }
+        // }
+    
+        // public function dashboardpage(){
+        //     if(Auth::check()){
+        //         return view('dashboard');
+        //     }
+        //     else{
+        //         return redirect()->route('login');
+        //     }
+        // }
     public function view(){
         $customers=Customer::all();
         // echo "<pre>";
@@ -94,4 +121,10 @@ class CustomerController extends Controller
         return redirect('customer/view');
     }
 
+        // public function upload(Request $request){
+        //     echo"<pre>";
+        //     print_r($request->all());
+        //     return view('upload');
+        //     echo $request->file('image')->store('uploads');
+        // }       
 }

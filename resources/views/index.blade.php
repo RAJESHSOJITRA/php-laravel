@@ -29,7 +29,9 @@
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{url('/customer/create')}}" style="color: white">Register</a>
               </li>
-              
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{url('/customer/login')}}"style="color: white">login</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="{{url('/customer/view')}}" style="color: white">Customer</a>
               </li>
